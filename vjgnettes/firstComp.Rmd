@@ -1,0 +1,32 @@
+---
+title: "Comparisons in the benchmark package"
+author: "  "
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: html_document
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+# Sketch of comparison
+
+```{r setup}
+library(benchmark)
+m1 = micro_readVcf()
+m2 = micro_readGG() ...
+m3 = micro_readGG( new dataset )
+```
+
+# Further plans
+
+series of test intervals ... 22 16.05e6, 16.051e6  trivial ... 1k, 10k, 50k ... see if these take inordinately loong time
+
+widths = c(1000, 1e4, 5e4)
+vcfbench = list()
+for (i in 1:length(width)) {
+    vcfbench[[i]] = micro_readVcf( ... start = 16.05e6, end = 16.05e6 + width[[i]] )
+    
+GenomicRanges::tileGenome -- ultimately want concise approach to surveying a chromsome for all variants
+
+wrap code of this type in methods on the objects like tiles and vcf instances and so on
+
+  
